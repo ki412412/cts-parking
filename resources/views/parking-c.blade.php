@@ -1,37 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <meta name="api-base-url" content="{{ url('') }}" />
-    <script defer src="{{ mix('js/bootstrap.js') }}"></script>
-    <script defer src="{{ mix('js/chart-one-day.js') }}"></script>
-    
-</head>
-<body>
-    <h1>C駐車場</h1>
-    
-    <canvas id="myChart" width="100%"></canvas>
+@extends('layouts/main')
 
-    <div>
-        <table>
-            <thead>
-                <th>ID</th>
-                <th>ステータス</th>
-                <th>説明</th>
-                <th>スクレイピング時刻</th>
-            </thead>
+@section('content')
+
+<h1 class="text-3xl font-bold underline">
+    C駐車場
+</h1>
+
+<div class="px-20 py-8">
+    <canvas id="myChart" width="100%"></canvas>
+</div>
+
+<div class="p-20">
+    <table class="border-collapse table-auto w-full text-sm">
+        <thead>
+            <th class="border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">ID</th>
+            <th class="border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">ステータス</th>
+            <th class="border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">説明</th>
+            <th class="border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">スクレイピング時刻</th>
+        </thead>
+        <tbody class="bg-white dark:bg-slate-800">
             @foreach($parkingC as $c)
-                <tr>
-                    <td>{{ $c->id }}</td>
-                    <td>{{ $c->status_string }}</td>
-                    <td>{{ $c->description }}</td>
-                    <td>{{ $c->scraped_at }}</td>
-                </tr>
+            <tr>
+                <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{{ $c->id }}</td>
+                <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{{ $c->status_string }}</td>
+                <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{{ $c->description }}</td>
+                <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{{ $c->scraped_at }}</td>
+            </tr>
             @endforeach
-        </table>
-    </div>
-</body>
-</html>
+        </tbody>
+    </table>
+</div>
+
+@stop

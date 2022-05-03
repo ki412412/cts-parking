@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ParkingCController::class, 'index'])->name('paking_c');
+Route::get('/', [ParkingCController::class, 'index'])->name('parking-c');
