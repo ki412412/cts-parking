@@ -1,6 +1,7 @@
 exports.config = {
     url: "https://parking.hokkaido-airports.co.jp/cts/",
     screenShot: {
+        enable: false,
         path: ".",
         extension: "jpg",
         quality: 50

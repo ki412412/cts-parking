@@ -14,9 +14,12 @@ const config = require('./config').config;
     await page.goto(config.url);
 
     // スクショ
-    // const today = moment().format("YYYYMMDD_HHmmss");
-    // const screenShot = `${config.screenShot.path}/${today}.${config.screenShot.extension}`;
-    // await page.screenshot({ path: screenShot, quality: 50, fullPage: true });
+    if (config.screenShot.enable) {
+        const today = moment().format("YYYYMMDD_HHmmss");
+        const screenShot = `${config.screenShot.path}/${today}.${config.screenShot.extension}`;
+        await page.screenshot({ path: screenShot, quality: 50, fullPage: true });
+    }
+    
 
     // iframeレンダリング完了を待つ
     // const frame = page.frames()[page.frames().length-1]; // FIXME: frameが0の場合の例外処理が必要
