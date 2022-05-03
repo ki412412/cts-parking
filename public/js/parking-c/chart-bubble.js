@@ -14250,6 +14250,9 @@ _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MOD
                 title: {
                   display: true,
                   text: '時間帯毎の混雑度合い'
+                },
+                legend: {
+                  align: 'end'
                 }
               }
             }

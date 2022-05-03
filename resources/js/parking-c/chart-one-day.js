@@ -112,6 +112,9 @@ Chart.register(
                 title: {
                     display: true,
                     text: '1日の混雑状況'
+                },
+                legend: {
+                    align: 'end'
                 }
             }
         }

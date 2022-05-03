@@ -111,6 +111,9 @@ Chart.register(
                 title: {
                     display: true,
                     text: '時間帯毎の混雑度合い'
+                },
+                legend: {
+                    align: 'end'
                 }
             }
         }
