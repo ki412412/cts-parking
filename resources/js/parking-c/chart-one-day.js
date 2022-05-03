@@ -83,6 +83,17 @@ Chart.register(
                 axis: 'x'
             },
             scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: '時刻',
+                    },
+                    min: 0,
+                    max: 23,
+                    ticks: {
+                        stepSize: 1,
+                    }
+                },
                 y: {
                     min: 1,
                     max: 3,
@@ -100,7 +111,7 @@ Chart.register(
             plugins: {
                 title: {
                     display: true,
-                    text: 'C駐車場の１日の空車状況'
+                    text: '1日の混雑状況'
                 }
             }
         }
@@ -118,7 +129,7 @@ async function getData() {
     let response = await window.axios.get(`/api/parking-c?scrapeDate=${scrapeDate ?? moment().format('YYYY-MM-DD')}`);
     let responseXY = response.data.map(d => {
         return {
-            x: d.scraped_at.slice(11).slice(0, -6)+':00', 
+            x: Number(d.scraped_at.slice(11).slice(0, -6)), 
             y: d.status
         }
     });
@@ -139,7 +150,7 @@ async function getData() {
         let result = [];
         for (let i = 0; i < 24; i++) {
             result.push({
-                x: `${('000' + i).slice(-2)}:00`,
+                x: i,
                 y: 0
             });
         }

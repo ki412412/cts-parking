@@ -35838,6 +35838,17 @@ _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MOD
                 axis: 'x'
               },
               scales: {
+                x: {
+                  title: {
+                    display: true,
+                    text: '時刻'
+                  },
+                  min: 0,
+                  max: 23,
+                  ticks: {
+                    stepSize: 1
+                  }
+                },
                 y: {
                   min: 1,
                   max: 3,
@@ -35855,7 +35866,7 @@ _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MOD
               plugins: {
                 title: {
                   display: true,
-                  text: 'C駐車場の１日の空車状況'
+                  text: '1日の混雑状況'
                 }
               }
             }
@@ -35887,7 +35898,7 @@ function _getData() {
 
               for (var i = 0; i < 24; i++) {
                 result.push({
-                  x: "".concat(('000' + i).slice(-2), ":00"),
+                  x: i,
                   y: 0
                 });
               }
@@ -35905,7 +35916,7 @@ function _getData() {
             response = _context2.sent;
             responseXY = response.data.map(function (d) {
               return {
-                x: d.scraped_at.slice(11).slice(0, -6) + ':00',
+                x: Number(d.scraped_at.slice(11).slice(0, -6)),
                 y: d.status
               };
             }); // Chart.jsのx,y軸データ(xy)を作成
