@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <script defer src="{{ asset('js/chart-one-day.js') }}"></script>
 </head>
 <body>
     <h1>駐車場C</h1>
@@ -24,8 +26,8 @@
                     <td>{{ $c->scraped_at }}</td>
                 </tr>
             @endforeach
-            
         </table>
     </div>
+    <canvas id="myChart" width="100%"></canvas>
 </body>
 </html>
