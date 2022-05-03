@@ -17,6 +17,7 @@
     },
     "dependencies": {
         "moment": "^2.29.3",
+        "mysql": "^2.18.1",
         "puppeteer": "^13.7.0"
     }
 }
