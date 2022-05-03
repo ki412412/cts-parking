@@ -16,6 +16,7 @@
         "postcss": "^8.1.14"
     },
     "dependencies": {
+        "moment": "^2.29.3",
         "puppeteer": "^13.7.0"
     }
 }
