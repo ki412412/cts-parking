@@ -11,7 +11,10 @@
     
 </head>
 <body>
-    <h1>駐車場C</h1>
+    <h1>C駐車場</h1>
+    
+    <canvas id="myChart" width="100%"></canvas>
+
     <div>
         <table>
             <thead>
@@ -30,6 +33,5 @@
             @endforeach
         </table>
     </div>
-    <canvas id="myChart" width="100%"></canvas>
 </body>
 </html>

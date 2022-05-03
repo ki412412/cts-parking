@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreparkingCRequest;
 use App\Http\Requests\UpdateparkingCRequest;
 use App\Models\ParkingC;
+use Illuminate\Http\Request;
 
 class ParkingCController extends Controller
 {
@@ -13,9 +14,17 @@ class ParkingCController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('parking-c', ['parkingC' => ParkingC::all()]);
+        $query = ParkingC::query();
+
+        // スクレイピング日
+        $scrapeDate = $request->input('scrapeDate');
+        if ($scrapeDate) {
+            $query = $query->where('scraped_at', 'LIKE', "{$scrapeDate}%");
+        }
+
+        return view('parking-c', ['parkingC' => $query->get()]);
     }
 
     /**

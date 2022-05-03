@@ -17790,7 +17790,7 @@ function getData() {
 
 function _getData() {
   _getData = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
-    var response, responseXY, xy, _iterator, _step, r, i, defaultXY;
+    var scrapeDate, response, responseXY, xy, _iterator, _step, r, i, defaultXY;
 
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
       while (1) {
@@ -17809,10 +17809,13 @@ function _getData() {
               return result;
             };
 
-            _context2.next = 3;
-            return window.axios.get('/api/parking-c');
+            // クエリパラメータ
+            scrapeDate = new URLSearchParams(window.location.search).get('scrapeDate'); // APIからデータ取得
 
-          case 3:
+            _context2.next = 4;
+            return window.axios.get("/api/parking-c?scrapeDate=".concat(scrapeDate));
+
+          case 4:
             response = _context2.sent;
             responseXY = response.data.map(function (d) {
               return {
@@ -17842,7 +17845,7 @@ function _getData() {
 
             return _context2.abrupt("return", xy);
 
-          case 9:
+          case 10:
           case "end":
             return _context2.stop();
         }

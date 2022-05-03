@@ -104,8 +104,11 @@ Chart.register(
 })();
 
 async function getData() {
+    // クエリパラメータ
+    const scrapeDate = new URLSearchParams(window.location.search).get('scrapeDate');
+
     // APIからデータ取得
-    let response = await window.axios.get('/api/parking-c');
+    let response = await window.axios.get(`/api/parking-c?scrapeDate=${scrapeDate}`);
     let responseXY = response.data.map(d => {
         return {
             x: d.scraped_at.slice(11).slice(0, -6)+':00', 

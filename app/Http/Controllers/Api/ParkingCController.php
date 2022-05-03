@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreparkingCRequest;
 use App\Http\Requests\UpdateparkingCRequest;
 use App\Models\ParkingC;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ParkingCController extends Controller
 {
@@ -14,9 +16,18 @@ class ParkingCController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return ParkingC::all();
+        
+        $query = ParkingC::query();
+
+        // スクレイピング日
+        $scrapeDate = $request->input('scrapeDate');
+        if ($scrapeDate) {
+            $query = $query->where('scraped_at', 'LIKE', "{$scrapeDate}%");
+        }
+
+        return $query->get();
     }
 
     /**
