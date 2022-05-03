@@ -5,8 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
-    <script defer src="{{ asset('js/chart-one-day.js') }}"></script>
+    <meta name="api-base-url" content="{{ url('') }}" />
+    <script defer src="{{ mix('js/bootstrap.js') }}"></script>
+    <script defer src="{{ mix('js/chart-one-day.js') }}"></script>
+    
 </head>
 <body>
     <h1>駐車場C</h1>
