@@ -8,7 +8,8 @@
 
     <meta name="api-base-url" content="{{ url('') }}" />
     <script defer src="{{ mix('js/bootstrap.js') }}"></script>
-    <script defer src="{{ mix('js/chart-one-day.js') }}"></script>
+    <script defer src="{{ mix('js/parking-c/chart-bubble.js') }}"></script>
+    <script defer src="{{ mix('js/parking-c/chart-one-day.js') }}"></script>
 
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>

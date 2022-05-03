@@ -88,6 +88,12 @@ Chart.register(
                     max: 3,
                     ticks: {
                         stepSize: 1,
+                        callback: function(value, index, ticks) {
+                            if (value === 1) return '空';
+                            if (value === 2) return '混雑';
+                            if (value === 3) return '満車';
+                            return '？';
+                        }
                     }
                 },
             },

@@ -2,11 +2,15 @@
 
 @section('content')
 
-<h1 class="text-3xl font-bold underline">
+<h1 class="text-3xl font-bold">
     C駐車場
 </h1>
 
-<div class="">
+<div class="py-12">
+    <canvas id="chart-bubble" width="100%"></canvas>
+</div>
+
+<div class="py-12">
     <canvas id="myChart" width="100%"></canvas>
 </div>
 

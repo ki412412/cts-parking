@@ -7,6 +7,7 @@ use App\Http\Requests\StoreparkingCRequest;
 use App\Http\Requests\UpdateparkingCRequest;
 use App\Models\ParkingC;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 class ParkingCController extends Controller
@@ -28,6 +29,21 @@ class ParkingCController extends Controller
         }
 
         return $query->get();
+    }
+
+    public function statistics(Request $request)
+    {
+        $result = [];
+        for ($h=0; $h<24; $h++) {
+            $count = \App\Models\ParkingC::where('scraped_at', 'LIKE', "% ".sprintf('%02d', $h).":%")->get()->countBy('status');
+
+            $result[] = ['hour' => $h, 'status' => 0, 'count' => $count[0]??0];
+            $result[] = ['hour' => $h, 'status' => 1, 'count' => $count[1]??0];
+            $result[] = ['hour' => $h, 'status' => 2, 'count' => $count[2]??0];
+            $result[] = ['hour' => $h, 'status' => 3, 'count' => $count[3]??0];
+        }
+
+        return $result;
     }
 
     /**

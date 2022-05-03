@@ -1,6 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
     "/js/bootstrap.js": "/js/bootstrap.js",
-    "/js/chart-one-day.js": "/js/chart-one-day.js",
+    "/js/parking-c/chart-one-day.js": "/js/parking-c/chart-one-day.js",
+    "/js/parking-c/chart-bubble.js": "/js/parking-c/chart-bubble.js",
     "/css/app.css": "/css/app.css"
 }
