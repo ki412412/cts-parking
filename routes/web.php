@@ -14,4 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ParkingCController::class, 'index'])->name('parking-c');
+Route::get('/', [ParkingCController::class, 'index'])->name('home');
+
+// C駐車場
+Route::prefix('parking-c')->name('parking-c.')->group(function () {
+    Route::get('/', [ParkingCController::class, 'index'])->name('index');
+    Route::get('/search', [ParkingCController::class, 'search'])->name('search');
+});

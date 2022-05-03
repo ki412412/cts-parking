@@ -20,7 +20,7 @@
             <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                 B駐車場
             </a>
-            <a href="{{ route('parking-c', ['scrapeDate' => date('Y-m-d')]) }}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+            <a href="{{ route('parking-c.search', ['scrapeDate' => date('Y-m-d')]) }}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
                 C駐車場
             </a>
         </div>

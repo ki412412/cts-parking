@@ -16,6 +16,13 @@ class ParkingCController extends Controller
      */
     public function index(Request $request)
     {
+        return view('parking-c', [
+            'parkingC' => ParkingC::where('scraped_at', 'LIKE', date('Y-m-d')."%")->get()
+        ]);
+    }
+
+    public function search(Request $request)
+    {
         $query = ParkingC::query();
 
         // スクレイピング日
