@@ -14,7 +14,9 @@ class ParkingCFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'status' => $this->faker->randomElement([0, 1, 2, 3]),
+            'description' => null,
+            'scraped_at' => date('YYYY-mm-dd')
         ];
     }
 }

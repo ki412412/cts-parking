@@ -13,6 +13,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        for ($d=0; $d<3; $d++) {
+            for ($i=0; $i<24; $i++) {
+                $date = date('Y-m-d', strtotime("+{$d} day"));
+                \App\Models\ParkingC::factory()->create(['scraped_at' => "{$date} {$i}:00"]);
+            }
+        }
+        
+
     }
 }

@@ -129,7 +129,7 @@ async function getData() {
         let result = [];
         for (let i = 0; i < 24; i++) {
             result.push({
-                x: `${i}:00`,
+                x: `${('000' + i).slice(-2)}:00`,
                 y: 0
             });
         }

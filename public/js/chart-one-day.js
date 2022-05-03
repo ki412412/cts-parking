@@ -17801,7 +17801,7 @@ function _getData() {
 
               for (var i = 0; i < 24; i++) {
                 result.push({
-                  x: "".concat(i, ":00"),
+                  x: "".concat(('000' + i).slice(-2), ":00"),
                   y: 0
                 });
               }
