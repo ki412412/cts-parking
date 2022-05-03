@@ -6,11 +6,11 @@
     C駐車場
 </h1>
 
-<div class="px-20 py-8">
+<div class="">
     <canvas id="myChart" width="100%"></canvas>
 </div>
 
-<div class="p-20">
+<div class="p-">
     <table class="border-collapse table-auto w-full text-sm">
         <thead>
             <th class="border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">ID</th>
