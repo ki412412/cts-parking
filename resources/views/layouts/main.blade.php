@@ -16,7 +16,7 @@
 <body>
     @include('layouts/header')
     
-    <div class="px-40 py-12">
+    <div class="px-8 lg:px-40 py-8 lg:py-12">
         @yield('content')
     </div>
     

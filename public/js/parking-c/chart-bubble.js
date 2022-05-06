@@ -14205,7 +14205,7 @@ _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MOD
                 return {
                   x: d.hour,
                   y: d.status,
-                  r: Math.pow(d.count, 2) * 10
+                  r: d.count
                 };
               }),
               backgroundColor: 'rgba(255, 99, 132, 0.5)'
@@ -14252,7 +14252,7 @@ _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MOD
                   text: '時間帯毎の混雑度合い'
                 },
                 legend: {
-                  align: 'end'
+                  align: 'center'
                 }
               }
             }

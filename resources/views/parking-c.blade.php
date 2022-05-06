@@ -6,15 +6,15 @@
     C駐車場
 </h1>
 
-<div class="py-12">
+<div class="py-8 lg:py-12">
     <canvas id="chart-bubble" width="100%"></canvas>
 </div>
 
-<div class="py-12">
+<div class="py-8 lg:py-12">
     <canvas id="myChart" width="100%"></canvas>
 </div>
 
-<div class="p-12">
+<div class="py-8 lg:p-12">
     <table class="border-collapse table-auto w-full text-sm">
         <thead>
             <th class="border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">ID</th>

@@ -64,7 +64,7 @@ Chart.register(
                     return {
                         x: d.hour,
                         y: d.status,
-                        r: d.count**2 * 10
+                        r: d.count
                     }
                 }),
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
@@ -113,7 +113,7 @@ Chart.register(
                     text: '時間帯毎の混雑度合い'
                 },
                 legend: {
-                    align: 'end'
+                    align: 'center'
                 }
             }
         }
