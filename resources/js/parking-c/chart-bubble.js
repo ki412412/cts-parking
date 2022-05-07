@@ -64,7 +64,7 @@ window.axios.get(`/api/parking-c/statistics`)
         renderBubblechart(data);
     });
 
-async function renderBubblechart(data) {
+function renderBubblechart(data) {
 
     const config = {
         type: 'bubble',
