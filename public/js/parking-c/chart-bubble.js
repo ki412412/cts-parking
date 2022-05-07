@@ -13397,10 +13397,10 @@ window.axios.get("/api/parking-c/statistics").then(function (response) {
       r: d.count
     };
   });
-  renderBubblechart(data);
+  renderBubblechart('#chart-bubble', data);
 });
 
-function renderBubblechart(data) {
+function renderBubblechart(selector, data) {
   var config = {
     type: 'bubble',
     data: {
@@ -13453,7 +13453,7 @@ function renderBubblechart(data) {
       }
     }
   };
-  new chart_js__WEBPACK_IMPORTED_MODULE_0__.Chart(document.getElementById('chart-bubble'), config);
+  new chart_js__WEBPACK_IMPORTED_MODULE_0__.Chart(document.querySelector(selector), config);
 }
 })();
 

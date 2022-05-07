@@ -61,10 +61,10 @@ window.axios.get(`/api/parking-c/statistics`)
                 r: d.count
             }
         })
-        renderBubblechart(data);
+        renderBubblechart('#chart-bubble', data);
     });
 
-function renderBubblechart(data) {
+function renderBubblechart(selector, data) {
 
     const config = {
         type: 'bubble',
@@ -121,5 +121,5 @@ function renderBubblechart(data) {
         }
     };
 
-    new Chart(document.getElementById('chart-bubble'), config);
+    new Chart(document.querySelector(selector), config);
 }
