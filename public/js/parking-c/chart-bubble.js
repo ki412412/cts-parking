@@ -14186,86 +14186,91 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 chart_js__WEBPACK_IMPORTED_MODULE_1__.Chart.register(chart_js__WEBPACK_IMPORTED_MODULE_1__.ArcElement, chart_js__WEBPACK_IMPORTED_MODULE_1__.LineElement, chart_js__WEBPACK_IMPORTED_MODULE_1__.BarElement, chart_js__WEBPACK_IMPORTED_MODULE_1__.PointElement, chart_js__WEBPACK_IMPORTED_MODULE_1__.BarController, chart_js__WEBPACK_IMPORTED_MODULE_1__.BubbleController, chart_js__WEBPACK_IMPORTED_MODULE_1__.DoughnutController, chart_js__WEBPACK_IMPORTED_MODULE_1__.LineController, chart_js__WEBPACK_IMPORTED_MODULE_1__.PieController, chart_js__WEBPACK_IMPORTED_MODULE_1__.PolarAreaController, chart_js__WEBPACK_IMPORTED_MODULE_1__.RadarController, chart_js__WEBPACK_IMPORTED_MODULE_1__.ScatterController, chart_js__WEBPACK_IMPORTED_MODULE_1__.CategoryScale, chart_js__WEBPACK_IMPORTED_MODULE_1__.LinearScale, chart_js__WEBPACK_IMPORTED_MODULE_1__.LogarithmicScale, chart_js__WEBPACK_IMPORTED_MODULE_1__.RadialLinearScale, chart_js__WEBPACK_IMPORTED_MODULE_1__.TimeScale, chart_js__WEBPACK_IMPORTED_MODULE_1__.TimeSeriesScale, chart_js__WEBPACK_IMPORTED_MODULE_1__.Decimation, chart_js__WEBPACK_IMPORTED_MODULE_1__.Filler, chart_js__WEBPACK_IMPORTED_MODULE_1__.Legend, chart_js__WEBPACK_IMPORTED_MODULE_1__.Title, chart_js__WEBPACK_IMPORTED_MODULE_1__.Tooltip);
+window.axios.get("/api/parking-c/statistics").then(function (response) {
+  var data = response.data.map(function (d) {
+    return {
+      x: d.hour,
+      y: d.status,
+      r: d.count
+    };
+  });
+  renderBubblechart(data);
+});
 
-_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-  var response, data, config;
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-    while (1) {
-      switch (_context.prev = _context.next) {
-        case 0:
-          _context.next = 2;
-          return window.axios.get("/api/parking-c/statistics");
+function renderBubblechart(_x) {
+  return _renderBubblechart.apply(this, arguments);
+}
 
-        case 2:
-          response = _context.sent;
-          data = {
-            datasets: [{
-              label: 'Dataset',
-              data: response.data.map(function (d) {
-                return {
-                  x: d.hour,
-                  y: d.status,
-                  r: d.count
-                };
-              }),
-              backgroundColor: 'rgba(255, 99, 132, 0.5)'
-            }]
-          };
-          config = {
-            type: 'bubble',
-            data: data,
-            options: {
-              responsive: true,
-              interaction: {
-                intersect: false,
-                axis: 'xy'
+function _renderBubblechart() {
+  _renderBubblechart = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(data) {
+    var config;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            config = {
+              type: 'bubble',
+              data: {
+                datasets: [{
+                  label: 'Dataset',
+                  data: data,
+                  backgroundColor: 'rgba(255, 99, 132, 0.5)'
+                }]
               },
-              scales: {
-                x: {
-                  title: {
-                    display: true,
-                    text: '時刻'
-                  },
-                  min: 0,
-                  max: 23,
-                  ticks: {
-                    stepSize: 1
-                  }
+              options: {
+                responsive: true,
+                interaction: {
+                  intersect: false,
+                  axis: 'xy'
                 },
-                y: {
-                  min: 1,
-                  max: 3,
-                  ticks: {
-                    stepSize: 1,
-                    callback: function callback(value, index, ticks) {
-                      if (value === 1) return '空';
-                      if (value === 2) return '混雑';
-                      if (value === 3) return '満車';
-                      return '？';
+                scales: {
+                  x: {
+                    title: {
+                      display: true,
+                      text: '時刻'
+                    },
+                    min: 0,
+                    max: 23,
+                    ticks: {
+                      stepSize: 1
+                    }
+                  },
+                  y: {
+                    min: 1,
+                    max: 3,
+                    ticks: {
+                      stepSize: 1,
+                      callback: function callback(value, index, ticks) {
+                        if (value === 1) return '空';
+                        if (value === 2) return '混雑';
+                        if (value === 3) return '満車';
+                        return '？';
+                      }
                     }
                   }
-                }
-              },
-              plugins: {
-                title: {
-                  display: true,
-                  text: '時間帯毎の混雑度合い'
                 },
-                legend: {
-                  align: 'center'
+                plugins: {
+                  title: {
+                    display: true,
+                    text: '時間帯毎の混雑度合い'
+                  },
+                  legend: {
+                    align: 'center'
+                  }
                 }
               }
-            }
-          };
-          new chart_js__WEBPACK_IMPORTED_MODULE_1__.Chart(document.getElementById('chart-bubble'), config);
+            };
+            new chart_js__WEBPACK_IMPORTED_MODULE_1__.Chart(document.getElementById('chart-bubble'), config);
 
-        case 6:
-        case "end":
-          return _context.stop();
+          case 2:
+          case "end":
+            return _context.stop();
+        }
       }
-    }
-  }, _callee);
-}))();
+    }, _callee);
+  }));
+  return _renderBubblechart.apply(this, arguments);
+}
 })();
 
 /******/ })()

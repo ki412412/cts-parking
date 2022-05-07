@@ -52,29 +52,31 @@ Chart.register(
     Tooltip
 );
 
-(async () => {
-
-    const response = await window.axios.get(`/api/parking-c/statistics`);
-
-    const data = {
-        datasets: [
-            {
-                label: 'Dataset',
-                data: response.data.map(d => {
-                    return {
-                        x: d.hour,
-                        y: d.status,
-                        r: d.count
-                    }
-                }),
-                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+window.axios.get(`/api/parking-c/statistics`)
+    .then(response => {
+        const data = response.data.map(d => {
+            return {
+                x: d.hour,
+                y: d.status,
+                r: d.count
             }
-        ],
-    };
+        })
+        renderBubblechart(data);
+    });
+
+async function renderBubblechart(data) {
 
     const config = {
         type: 'bubble',
-        data: data,
+        data: {
+            datasets: [
+                {
+                    label: 'Dataset',
+                    data: data,
+                    backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                }
+            ],
+        },
         options: {
             responsive: true,
             interaction: {
@@ -120,4 +122,4 @@ Chart.register(
     };
 
     new Chart(document.getElementById('chart-bubble'), config);
-})();
+}
