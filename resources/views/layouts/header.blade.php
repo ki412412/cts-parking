@@ -28,4 +28,13 @@
             {{-- <a href="#" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Download</a> --}}
         </div>
     </div>
+
+    {{-- FIXME: バージョンの位置ダサいので修正 --}}
+    <div class="flex flex-col items-center text-center">
+        @env(['local', 'staging'])
+            <div class="text-xs font-bold text-rose-700">{{ strtoupper(config('app.env')) }}<div>
+        @endenv
+        <div class="text-teal-200">{{ config('app.version') }}</div>
+    </div>
+
 </nav>
