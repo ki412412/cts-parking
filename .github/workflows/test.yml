@@ -30,6 +30,8 @@ jobs:
       run: |
         mkdir -p database
         touch database/database.sqlite
+    - name: Execute migration and seeder
+      run: php artisan migrate:fresh --seed
     - name: Execute tests (Unit and Feature tests) via artisan command
       env:
         DB_CONNECTION: sqlite
