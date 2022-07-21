@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\ParkingC;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,13 +14,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        for ($d=0; $d<3; $d++) {
+        for ($d=0; $d<14; $d++) {
             for ($i=0; $i<24; $i++) {
                 $date = date('Y-m-d', strtotime("+{$d} day"));
-                \App\Models\ParkingC::factory()->create(['scraped_at' => "{$date} {$i}:00"]);
+                ParkingC::factory()->create(['scraped_at' => "{$date} {$i}:00"]);
             }
         }
-        
+
 
     }
 }
