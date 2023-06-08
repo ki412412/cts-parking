@@ -12,6 +12,9 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
+    .js('resources/js/bootstrap.js', 'public/js')
+    .js('resources/js/parking-c/chart-one-day.js', 'public/js/parking-c')
+    .js('resources/js/parking-c/chart-bubble.js', 'public/js/parking-c')
     .postCss('resources/css/app.css', 'public/css', [
-        //
+        require("tailwindcss"),
     ]);

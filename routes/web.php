@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ParkingCController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [ParkingCController::class, 'index'])->name('home');
+
+// C駐車場
+Route::prefix('parking-c')->name('parking_c.')->group(function () {
+    Route::get('/', [ParkingCController::class, 'index'])->name('index');
+    Route::get('/search', [ParkingCController::class, 'search'])->name('search');
 });

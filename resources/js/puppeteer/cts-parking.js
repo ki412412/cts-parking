@@ -7,6 +7,7 @@ const config = require('./config').config;
 (async () => {
     const browser = await puppeteer.launch({
         headless: true,
+        args: ['--no-sandbox', '--disable-setuid-sandbox'], // サーバでのエラー回避のため
         slowMo: 1000 // [msec]
     })
     const page = await browser.newPage();
